@@ -1,0 +1,47 @@
+= 4DLabs-coins-factory
+Vincent Deygas <vincent.deygas@4dconcept.fr>
+:title-page-background-image: image::4dlabs.coins.factory.png[]
+:toc: left
+:source-highlighter: pygments
+:pygments-style: emacs
+:icons: font
+:revnumber: v1.0
+:revdate: November 1, 2018
+:revremark: Initial Release
+:encoding: utf-8
+
+A micro-services application with :
+
+* *rng*: web service generating random bytes
+* *hasher*: web service computing hash of POSTed data
+* *worker*: background process using rng and hasher
+* *webui*: web interface to watch progress
+
+== Quickly setup steps
+
+To get to quickly setup, follow the instructions bellow.
+
+=== Step 1 : prerequistes
+
+``` sh
+$ git --version
+$ docker -v
+$ docker-compose -v
+```
+
+=== Step 2 : setup & run stask
+
+``` sh
+$ git clone https://github.com/vdeygas/4DLabs-coins-factory.git
+$ cd 4DLabs-coins-factory
+$ docker-compose up -d
+```
+
+== Git Branches
+
+This is a `step by step` project life with :
+
+* `step/0` is initial commit, rng v 1.0 (java springboot service), no Dockerfile
+* `step/1` introduce rng Dockerfile
+* `step/2` add docker-compose.yml
+* `step/3` upgrade to rng v. 2.0 (python service)
