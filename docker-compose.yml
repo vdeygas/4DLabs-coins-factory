@@ -1,0 +1,40 @@
+version: "3.1"
+
+services:
+  rng:
+    build: ./rng
+    image: vdeygas/4dlabs_coinsfactory_rng:1.0
+    networks:
+    - 4dlabs_net
+    ports:
+    - "8001:80"
+
+  hasher:
+    build: ./hasher
+    image: vdeygas/4dlabs_coinsfactory_hasher:1.0
+    networks:
+    - 4dlabs_net
+    ports:
+    - "8002:80"
+
+  webui:
+    build: ./webui
+    image: vdeygas/4dlabs_coinsfactory_webui:1.0
+    networks:
+    - 4dlabs_net
+    ports:
+    - "8000:80"
+
+  redis:
+    image: redis
+    networks:
+    - 4dlabs_net
+
+  worker:
+    build: ./worker
+    image: vdeygas/4dlabs_coinsfactory_worker:1.0
+    networks:
+    - 4dlabs_net
+
+networks:
+  4dlabs_net:
